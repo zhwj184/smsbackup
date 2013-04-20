@@ -3,6 +3,6 @@
 
     <string name="app_name">短信备份到邮箱</string>
     <string name="smsbackup">短信备份</string>
-    <string name="receriver">zhwj184@gmail.com</string>
+    <string name="receriver">test@gmail.com</string>
 
 </resources>
