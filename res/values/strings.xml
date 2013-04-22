@@ -4,5 +4,6 @@
     <string name="app_name">短信备份到邮箱</string>
     <string name="smsbackup">短信备份</string>
     <string name="receriver">test@gmail.com</string>
-
+	<string name="sendlocation">发送位置</string>
+	
 </resources>

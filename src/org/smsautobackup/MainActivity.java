@@ -37,15 +37,21 @@ public class MainActivity extends Activity {
 			}
 
 		});
-//		Button btn1 = (Button) findViewById(R.id.button2);
-//		btn1.setOnClickListener(new View.OnClickListener() {
-//			public void onClick(View v) {
-//				EditText txtContent = (EditText) MainActivity.this.findViewById(R.id.editText1);
-//				AutoBackupService.receiver = txtContent.getText().toString();
-//				startService(new Intent(MainActivity.this,
-//						AutoBackupService.class));
-//			}
-//		});
+		Button btn1 = (Button) findViewById(R.id.sendLocation);
+		btn1.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				sendLocaltion();
+			}
+
+		});
+	}
+	
+	private void sendLocaltion(){
+		new LocationMonitor(MainActivity.this,this,getPhone()).run();
+	}
+	
+	private String getPhone(){
+		return  ((EditText) findViewById(R.id.phone)).getText().toString();
 	}
 
 	private String getSmsInPhone() {
@@ -79,8 +85,8 @@ public class MainActivity extends Activity {
 
 	private void sendSms(String content) {
 		Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-		intent.setType("plain/text");
-		// intent.setType("message/rfc822") ; // 真机上使用这行
+//		intent.setType("plain/text");
+		intent.setType("message/rfc822") ; // 真机上使用这行
 		EditText txtContent = (EditText) findViewById(R.id.editText1);
 		String[] strEmailReciver = new String[] { txtContent.getText()
 				.toString() };
